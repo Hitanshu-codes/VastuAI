@@ -8,25 +8,25 @@ export default function HowItWorks() {
       number: "01",
       title: "Input Your Requirements",
       description: "Enter your plot dimensions, budget, room preferences, and Vastu priorities.",
-      image: "/placeholder.svg?height=300&width=400",
+      image: "/input_req.jpg?height=300&width=400",
     },
     {
       number: "02",
       title: "AI Generates Designs",
       description: "Our AI creates multiple Vastu-compliant design options based on your inputs.",
-      image: "/placeholder.svg?height=300&width=400",
+      image: "/ar.jpgheight=300&width=400",
     },
     {
       number: "03",
       title: "Visualize in 3D",
       description: "Explore your designs in immersive 3D and make real-time adjustments.",
-      image: "/placeholder.svg?height=300&width=400",
+      image: "/visualise.jpg?height=300&width=400",
     },
     {
       number: "04",
       title: "Finalize & Download",
       description: "Get detailed blueprints and connect with professionals to bring your design to life.",
-      image: "/placeholder.svg?height=300&width=400",
+      image: "/final_download.jpg?height=300&width=400",
     },
   ]
 
