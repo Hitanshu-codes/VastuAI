@@ -90,7 +90,7 @@ export default function Hero() {
           >
             <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-background/50 z-10 rounded-lg" />
             <img
-              src="/placeholder.svg?height=600&width=800"
+              src="/home.jpg?height=600&width=800"
               alt="VastuAI Home Design"
               className="w-full h-full object-cover"
             />
