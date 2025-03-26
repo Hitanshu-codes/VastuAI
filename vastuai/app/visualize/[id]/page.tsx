@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { Canvas } from "@react-three/fiber"
-import { OrbitControls, Environment, useGLTF } from "@react-three/drei"
+import { OrbitControls, Environment } from "@react-three/drei"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -57,7 +57,6 @@ export default function VisualizePage({ params }: { params: { id: string } }) {
               <ambientLight intensity={0.5} />
               <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
               <pointLight position={[-10, -10, -10]} />
-              <Model />
               <OrbitControls />
               <Environment preset="apartment" />
             </Canvas>
@@ -192,12 +191,5 @@ export default function VisualizePage({ params }: { params: { id: string } }) {
       </div>
     </div>
   )
-}
-
-function Model() {
-  // Using a sample 3D model for demonstration
-  const { scene } = useGLTF("/assets/3d/duck.glb")
-
-  return <primitive object={scene} scale={2} position={[0, -1, 0]} rotation={[0, Math.PI / 4, 0]} />
 }
 
