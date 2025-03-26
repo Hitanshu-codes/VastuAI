@@ -29,7 +29,7 @@ export default function DesignPage() {
             {
               id: 1,
               name: "Modern Vastu Design",
-              thumbnail: "/placeholder.svg?height=300&width=400",
+              thumbnail: "/modern.jpg?height=400&width=400",
               floorPlan:
                 "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/result-oIEvYwOP7R0yURVKXXUQIwTKw3sCgc.png",
               score: 92,
@@ -47,7 +47,7 @@ export default function DesignPage() {
             {
               id: 2,
               name: "Contemporary Vastu Layout",
-              thumbnail: "/placeholder.svg?height=300&width=400",
+              thumbnail: "/contem.jpg?height=400&width=400",
               floorPlan:
                 "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/result-oIEvYwOP7R0yURVKXXUQIwTKw3sCgc.png",
               score: 88,
@@ -65,7 +65,7 @@ export default function DesignPage() {
             {
               id: 3,
               name: "Minimalist Vastu Home",
-              thumbnail: "/placeholder.svg?height=300&width=400",
+              thumbnail: "/minimal.jpg?height=300&width=400",
               floorPlan:
                 "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/result-oIEvYwOP7R0yURVKXXUQIwTKw3sCgc.png",
               score: 85,
