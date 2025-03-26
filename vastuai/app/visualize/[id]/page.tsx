@@ -8,6 +8,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Download, Share2, CuboidIcon as Cube, Layers, Ruler, Thermometer, Droplet, Zap } from "lucide-react"
+import React from "react"
 
 export default function VisualizePage({ params }: { params: { id: string } }) {
   const [designData, setDesignData] = useState({
@@ -15,6 +16,7 @@ export default function VisualizePage({ params }: { params: { id: string } }) {
     name: "Modern Vastu Home",
     description: "A contemporary 3-bedroom home designed with Vastu principles for optimal energy flow and harmony.",
     vastuScore: 92,
+    floorPlan: "/result.png",
     features: [
       { name: "North-facing entrance", icon: Cube },
       { name: "East-facing kitchen", icon: Thermometer },
@@ -34,6 +36,15 @@ export default function VisualizePage({ params }: { params: { id: string } }) {
       waterConservation: "A",
       naturalLighting: "A+",
       ventilation: "A",
+    },
+    rooms: {
+      livingRoom: { area: "320 sq ft", direction: "North-East" },
+      kitchen: { area: "180 sq ft", direction: "South-East" },
+      masterBedroom: { area: "240 sq ft", direction: "South-West" },
+      bedroom2: { area: "180 sq ft", direction: "North-West" },
+      bathroom1: { area: "80 sq ft", direction: "South" },
+      bathroom2: { area: "60 sq ft", direction: "West" },
+      poojaRoom: { area: "50 sq ft", direction: "North-East" },
     },
   })
 
@@ -80,10 +91,11 @@ export default function VisualizePage({ params }: { params: { id: string } }) {
               <p className="text-muted-foreground mb-6">{designData.description}</p>
 
               <Tabs defaultValue="features">
-                <TabsList className="grid w-full grid-cols-3">
+                <TabsList className="grid w-full grid-cols-4">
                   <TabsTrigger value="features">Features</TabsTrigger>
                   <TabsTrigger value="dimensions">Dimensions</TabsTrigger>
                   <TabsTrigger value="sustainability">Sustainability</TabsTrigger>
+                  <TabsTrigger value="floorplan">Floor Plan</TabsTrigger>
                 </TabsList>
 
                 <TabsContent value="features" className="mt-4">
@@ -142,6 +154,28 @@ export default function VisualizePage({ params }: { params: { id: string } }) {
                         {designData.sustainability.ventilation}
                       </Badge>
                     </div>
+                  </div>
+                </TabsContent>
+
+                <TabsContent value="floorplan" className="mt-4">
+                  <div className="bg-muted rounded-md overflow-hidden mb-4">
+                    <img
+                      src={designData.floorPlan || "/placeholder.svg"}
+                      alt={`${designData.name} Floor Plan`}
+                      className="w-full h-auto"
+                    />
+                  </div>
+
+                  <h4 className="font-medium mb-2 text-sm">Room Details</h4>
+                  <div className="grid grid-cols-2 gap-y-3">
+                    {Object.entries(designData.rooms || {}).map(([room, details]) => (
+                      <React.Fragment key={room}>
+                        <div className="text-sm font-medium capitalize">{room.replace(/([A-Z])/g, " $1").trim()}:</div>
+                        <div className="text-sm">
+                          {details.area} ({details.direction})
+                        </div>
+                      </React.Fragment>
+                    ))}
                   </div>
                 </TabsContent>
               </Tabs>

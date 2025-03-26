@@ -1,18 +1,38 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { CheckCircle2, Download, Eye, Share2, ThumbsUp } from "lucide-react"
-import Link from "next/link"
+import { CheckCircle2, Download, Eye, Share2, ThumbsUp, ArrowRight } from "lucide-react"
 
-export default function DesignResults({ designs }: { designs: any[] }) {
+interface Room {
+  area: string
+  direction: string
+}
+
+interface Design {
+  id: number
+  name: string
+  thumbnail: string
+  floorPlan?: string
+  score: number
+  features: string[]
+  rooms?: Record<string, Room>
+}
+
+export default function DesignResults({ designs }: { designs: Design[] }) {
   const [selectedDesign, setSelectedDesign] = useState<number | null>(null)
+  const [activeDesignId, setActiveDesignId] = useState<number | null>(null)
 
   const handleSelectDesign = (id: number) => {
     setSelectedDesign(id)
+  }
+
+  const handleViewDetails = (id: number) => {
+    setActiveDesignId(id === activeDesignId ? null : id)
   }
 
   return (
@@ -52,13 +72,50 @@ export default function DesignResults({ designs }: { designs: any[] }) {
             </CardHeader>
             <CardContent className="pb-4">
               <div className="space-y-2">
-                {design.features.map((feature: string, index: number) => (
+                {design.features.map((feature, index) => (
                   <div key={index} className="flex items-center gap-2">
                     <CheckCircle2 className="h-4 w-4 text-primary" />
                     <span className="text-sm">{feature}</span>
                   </div>
                 ))}
               </div>
+
+              <Button
+                variant="ghost"
+                size="sm"
+                className="mt-3 w-full flex justify-between items-center"
+                onClick={() => handleViewDetails(design.id)}
+              >
+                <span>View Details</span>
+                <ArrowRight
+                  className={`h-4 w-4 transition-transform ${activeDesignId === design.id ? "rotate-90" : ""}`}
+                />
+              </Button>
+
+              {activeDesignId === design.id && design.rooms && (
+                <div className="mt-4 pt-4 border-t">
+                  <h4 className="font-medium mb-3">Floor Plan</h4>
+                  <div className="bg-muted rounded-md overflow-hidden mb-4">
+                    <img
+                      src={design.floorPlan || "/placeholder.svg"}
+                      alt={`${design.name} Floor Plan`}
+                      className="w-full h-auto"
+                    />
+                  </div>
+
+                  <h4 className="font-medium mb-2">Room Details</h4>
+                  <div className="space-y-2 text-sm">
+                    {Object.entries(design.rooms).map(([room, details]) => (
+                      <div key={room} className="flex justify-between">
+                        <span className="capitalize">{room.replace(/([A-Z])/g, " $1").trim()}:</span>
+                        <span className="text-muted-foreground">
+                          {details.area} ({details.direction})
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </CardContent>
             <CardFooter className="flex justify-between border-t pt-4">
               <Button

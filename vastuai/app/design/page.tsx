@@ -30,22 +30,55 @@ export default function DesignPage() {
               id: 1,
               name: "Modern Vastu Design",
               thumbnail: "/placeholder.svg?height=300&width=400",
+              floorPlan:
+                "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/result-oIEvYwOP7R0yURVKXXUQIwTKw3sCgc.png",
               score: 92,
               features: ["North-facing entrance", "Optimal room placement", "Natural lighting"],
+              rooms: {
+                livingRoom: { area: "320 sq ft", direction: "North-East" },
+                kitchen: { area: "180 sq ft", direction: "South-East" },
+                masterBedroom: { area: "240 sq ft", direction: "South-West" },
+                bedroom2: { area: "180 sq ft", direction: "North-West" },
+                bathroom1: { area: "80 sq ft", direction: "South" },
+                bathroom2: { area: "60 sq ft", direction: "West" },
+                poojaRoom: { area: "50 sq ft", direction: "North-East" },
+              },
             },
             {
               id: 2,
               name: "Contemporary Vastu Layout",
               thumbnail: "/placeholder.svg?height=300&width=400",
+              floorPlan:
+                "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/result-oIEvYwOP7R0yURVKXXUQIwTKw3sCgc.png",
               score: 88,
               features: ["East-facing kitchen", "Southwest master bedroom", "Open floor plan"],
+              rooms: {
+                livingRoom: { area: "350 sq ft", direction: "North" },
+                kitchen: { area: "200 sq ft", direction: "East" },
+                masterBedroom: { area: "260 sq ft", direction: "South-West" },
+                bedroom2: { area: "190 sq ft", direction: "West" },
+                bathroom1: { area: "85 sq ft", direction: "South" },
+                bathroom2: { area: "65 sq ft", direction: "West" },
+                poojaRoom: { area: "45 sq ft", direction: "North-East" },
+              },
             },
             {
               id: 3,
               name: "Minimalist Vastu Home",
               thumbnail: "/placeholder.svg?height=300&width=400",
+              floorPlan:
+                "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/result-oIEvYwOP7R0yURVKXXUQIwTKw3sCgc.png",
               score: 85,
               features: ["Balanced elements", "Energy-efficient", "Clutter-free spaces"],
+              rooms: {
+                livingRoom: { area: "300 sq ft", direction: "North" },
+                kitchen: { area: "160 sq ft", direction: "East" },
+                masterBedroom: { area: "220 sq ft", direction: "South-West" },
+                bedroom2: { area: "170 sq ft", direction: "West" },
+                bathroom1: { area: "75 sq ft", direction: "South" },
+                bathroom2: { area: "55 sq ft", direction: "West" },
+                poojaRoom: { area: "40 sq ft", direction: "North-East" },
+              },
             },
           ])
         }
