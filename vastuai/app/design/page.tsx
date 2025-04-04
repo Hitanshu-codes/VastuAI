@@ -31,7 +31,7 @@ export default function DesignPage() {
               name: "Modern Vastu Design",
               thumbnail: "/modern.jpg?height=400&width=400",
               floorPlan:
-                "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/result-oIEvYwOP7R0yURVKXXUQIwTKw3sCgc.png",
+                "/modern.png?height=400&width=400",
               score: 92,
               features: ["North-facing entrance", "Optimal room placement", "Natural lighting"],
               rooms: {
@@ -49,7 +49,7 @@ export default function DesignPage() {
               name: "Contemporary Vastu Layout",
               thumbnail: "/contem.jpg?height=400&width=400",
               floorPlan:
-                "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/result-oIEvYwOP7R0yURVKXXUQIwTKw3sCgc.png",
+                "/com.jpg?height=400&width=400",
               score: 88,
               features: ["East-facing kitchen", "Southwest master bedroom", "Open floor plan"],
               rooms: {
